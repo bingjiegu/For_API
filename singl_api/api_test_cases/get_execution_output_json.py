@@ -384,8 +384,8 @@ class GetCheckoutDataSet(object):
 
 
         for i in range(0, len(sink_output_info)):
-            if "dataset_id" in sink_output_info[i].keys():
-                dataset_id = sink_output_info[i]["dataset_id"]
+            #if "dataset_id" in sink_output_info[i].keys():
+            dataset_id = sink_output_info[i]["dataset_id"]
             flow_id = sink_output_info[i]["flow_id"]
             if '57' in self.host:
                 priview_url = "%s/api/datasets/%s/preview?rows=5000&tenant=%s&rows=50" % (
