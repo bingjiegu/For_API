@@ -8,7 +8,7 @@ from basic_info.setting import receivers_list,receivers_test
 
 # from newSuite import NewSuite
 
-# 添加用例集的API用例。暂停执行该用例集
+# 添加用例集的API用例。暂停执行该用例集!
 # testcase = unittest.TestSuite()
 # discover = unittest.defaultTestLoader.discover(start_dir='./api_test_cases', pattern='cases_for_*.py')
 # for test_suite in discover:
