@@ -2,6 +2,7 @@
 import os
 import re
 import time
+import io
 # from selenium import webdriver
 from util import get_host
 from openpyxl import load_workbook
