@@ -272,7 +272,7 @@ def post_request_result_check(row, column, url, host, headers, data, table_sheet
         elif case_detail == '密码错误的账户登录':
             data = {'name': encrypt_rf('admin'), 'password': encrypt_rf('123456555'), 'version': 'Europa-3.0.0.19 - 20180428', 'tenant': encrypt_rf('default')}
             response = requests.post(url=url, headers=new_headers, data=data)
-            print(response.status_code, response.text)
+           # print(response.status_code, response.text)
             clean_vaule(table_sheet_name, row, column)
             write_result(sheet=table_sheet_name, row=row, column=column, value=response.status_code)
             write_result(sheet=table_sheet_name, row=row, column=column + 4, value=response.text)
