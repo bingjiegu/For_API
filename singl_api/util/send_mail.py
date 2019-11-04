@@ -139,7 +139,7 @@ def main3(host,receivers):
     smtp.login(sender_163_mail, pwd)
     msg["Subject"] = Header(mail_title, 'utf-8')
     msg["From"] = sender_163
-    msg["To"] = Header("顾冰洁，王志明", 'utf-8')  # 接收者的别名
+    msg["To"] = Header("顾冰洁，王志明，冯倩，王海军，孙秀焕，许浩南", 'utf-8')  # 接收者的别名
     smtp.sendmail(sender_163_mail, receivers, msg.as_string())
     print('%s----发送邮件成功' % time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     smtp.quit()
@@ -242,7 +242,7 @@ def mail_for_flow(host,receivers):
     smtp.login(sender_163_mail, pwd)
     msg["Subject"] = Header(mail_title, 'utf-8')
     msg["From"] = sender_163
-    msg["To"] = Header("顾冰洁，王志明", 'utf-8')  # 接收者的别名
+    msg["To"] = Header("顾冰洁，王志明，冯倩，王海军，孙秀焕，许浩南", 'utf-8')  # 接收者的别名
     smtp.sendmail(sender_163_mail, receivers, msg.as_string())
     print('%s----发送邮件成功' % time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     smtp.quit()
