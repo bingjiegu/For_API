@@ -405,9 +405,9 @@ class GetCheckoutDataSet(object):
             for j in range(2, sheet_rows + 1):  # 按照行数进行循环
                     log_url = GetLog(sink_output_info[i]["execution_id"], self.host).get_log_url()
                     # 如果 dataset id相等就写入实际结果，不相等就向下找
-                    
-                    if dataset_id == flow_sheet.cell(row=j, column=4).value:
-                        flow_sheet.cell(row=j, column=8, value=str(result))  # dataset id 相等，实际结果写入表格
+                    if "dataset_id" in sink_output_info[i].keys():#
+                        if dataset_id == flow_sheet.cell(row=j, column=4).value:#向左前进1格
+                            flow_sheet.cell(row=j, column=8, value=str(result))  # dataset id 相等，实际结果写入表格  #向左前进1格
                     # flow id 相等时，将execution id ,yarn上的log URL 和执行状态写入
                     if flow_id == flow_sheet.cell(row=j, column=2).value:
                         # print(sink_dataset[i]["flow_id"])
