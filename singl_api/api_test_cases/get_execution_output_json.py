@@ -420,7 +420,7 @@ class GetCheckoutDataSet(object):
                                     flow_sheet.cell(row=j, column=5, value=sink_output_info[i]["execution_id"])
                                     flow_sheet.cell(row=j, column=12, value=log_url)
                                     flow_sheet.cell(row=j, column=6, value=sink_output_info[i]["e_final_status"])
-                                # flow_sheet.cell(row=j, column=8, value=result.text)  # 实际结果写入表格
+                                 # flow_sheet.cell(row=j, column=8, value=result.text)  # 实际结果写入表格
                                     break
         flow_table.save(abs_dir(self.table))
 
