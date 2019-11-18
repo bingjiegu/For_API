@@ -401,27 +401,27 @@ class GetCheckoutDataSet(object):
                 if "dataset_id" in sink_output_info[i].keys():#
                     statementID = statementId_flow_use(self.host, dataset_id, tenant_id_83)
                     result = preview_result_flow_use(self.host, dataset_id, get_tenant(self.host), statementID)
-            if dataset_id is not None:
-                for j in range(2, sheet_rows + 1):  # 按照行数进行循环
-                        log_url = GetLog(sink_output_info[i]["execution_id"], self.host).get_log_url()
+            
+            for j in range(2, sheet_rows + 1):  # 按照行数进行循环
+                    log_url = GetLog(sink_output_info[i]["execution_id"], self.host).get_log_url()
                     # 如果 dataset id相等就写入实际结果，不相等就向下找
                     
-                        if dataset_id == flow_sheet.cell(row=j, column=4).value:
-                            flow_sheet.cell(row=j, column=8, value=str(result))  # dataset id 相等，实际结果写入表格
+                    if dataset_id == flow_sheet.cell(row=j, column=4).value:
+                        flow_sheet.cell(row=j, column=8, value=str(result))  # dataset id 相等，实际结果写入表格
                     # flow id 相等时，将execution id ,yarn上的log URL 和执行状态写入
-                        if flow_id == flow_sheet.cell(row=j, column=2).value:
+                    if flow_id == flow_sheet.cell(row=j, column=2).value:
                         # print(sink_dataset[i]["flow_id"])
-                            flow_sheet.cell(row=j, column=5, value=sink_output_info[i]["execution_id"])
-                            flow_sheet.cell(row=j, column=12, value=log_url)
-                            flow_sheet.cell(row=j, column=6, value=sink_output_info[i]["e_final_status"])
-                        else:
-                            for t in range(j, 2, -1):
-                                if flow_id == flow_sheet.cell(row=t - 1, column=2).value:
-                                    flow_sheet.cell(row=j, column=5, value=sink_output_info[i]["execution_id"])
-                                    flow_sheet.cell(row=j, column=12, value=log_url)
-                                    flow_sheet.cell(row=j, column=6, value=sink_output_info[i]["e_final_status"])
+                        flow_sheet.cell(row=j, column=5, value=sink_output_info[i]["execution_id"])
+                        flow_sheet.cell(row=j, column=12, value=log_url)
+                        flow_sheet.cell(row=j, column=6, value=sink_output_info[i]["e_final_status"])
+                    else:
+                        for t in range(j, 2, -1):
+                            if flow_id == flow_sheet.cell(row=t - 1, column=2).value:
+                                flow_sheet.cell(row=j, column=5, value=sink_output_info[i]["execution_id"])
+                                flow_sheet.cell(row=j, column=12, value=log_url)
+                                flow_sheet.cell(row=j, column=6, value=sink_output_info[i]["e_final_status"])
                                  # flow_sheet.cell(row=j, column=8, value=result.text)  # 实际结果写入表格
-                                    break
+                                break
         flow_table.save(abs_dir(self.table))
 
         table = load_workbook(abs_dir(self.table))
