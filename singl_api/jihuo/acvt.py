@@ -5,7 +5,7 @@ PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
 url = 'http://192.168.2.81:8515/#/login'
 chromeOptions = webdriver.ChromeOptions()
 # chrome 普通模式
-chromedriver = PATH("../jihuo/chromedriver.exe")
+chromedriver = PATH("../jihuo/chromedriver")
 os.environ["webdriver.chrome.driver"] = chromedriver
 driver = webdriver.Chrome(chromedriver, chrome_options=chromeOptions)
 
