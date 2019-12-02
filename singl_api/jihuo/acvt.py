@@ -4,6 +4,10 @@ from util import get_host
 PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
 url = 'http://192.168.2.81:8515/#/login'
 chromeOptions = webdriver.ChromeOptions()
+chromeOptions.add_argument('--headless')
+chromeOptions.add_argument('--no-sandbox')
+chromeOptions.add_argument('--disable-gpu')
+chromeOptions.add_argument('--disable-dev-shm-usage')
 # chrome 普通模式
 chromedriver = PATH("../jihuo/chromedriver")
 os.environ["webdriver.chrome.driver"] = chromedriver
